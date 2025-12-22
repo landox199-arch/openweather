@@ -1,0 +1,952 @@
+/* =========================================
+   OpenWeather Explorer - Global Styles
+   All class names are prefixed with `ow-`
+   to avoid conflicts with other pages.
+========================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body.ow-body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: #0b1925;
+    color: #e9f0f7;
+    line-height: 1.5;
+}
+
+.ow-app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #0b1925;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* =========================================
+   Theme (Light / Dark)
+========================================= */
+
+.ow-body.ow-theme-dark {
+    background-color: #050b11;
+    color: #e9f0f7;
+}
+
+.ow-body.ow-theme-light {
+    background-color: #f4f7fb;
+    color: #17212f;
+}
+
+.ow-body.ow-theme-light .ow-app {
+    background-color: #f4f7fb;
+}
+
+.ow-body.ow-theme-light .ow-card {
+    background-color: #ffffff;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+}
+
+.ow-body.ow-theme-light .ow-search-form {
+    background-color: #ffffff;
+    border: 1px solid #d6deeb;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.ow-body.ow-theme-dark .ow-card {
+    background-color: #111d2b;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+.ow-body.ow-theme-light .ow-input {
+    background-color: #ffffff;
+    border-color: #c5cfde;
+    color: #17212f;
+}
+
+.ow-body.ow-theme-light .ow-input::placeholder {
+    color: #9aa5b7;
+}
+
+.ow-body.ow-theme-light .ow-footer {
+    border-top-color: #dae2f0;
+}
+
+.ow-body.ow-theme-light .ow-footer-link {
+    color: #0f74ff;
+}
+
+.ow-body.ow-theme-light .ow-primary-button {
+    background-color: #0f74ff;
+}
+
+.ow-body.ow-theme-light .ow-primary-button:hover:not(.ow-button-disabled) {
+    background-color: #0c5dcd;
+}
+
+.ow-body.ow-theme-light .ow-theme-toggle {
+    background-color: #ffffff;
+    border-color: #c5cfde;
+    color: #17212f;
+}
+
+.ow-body.ow-theme-light .ow-theme-toggle:hover {
+    background-color: #e9eff8;
+}
+
+/* =========================================
+   Header
+========================================= */
+
+.ow-header {
+    padding: 1.5rem 1.25rem 0.75rem;
+}
+
+.ow-header-main {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.ow-logo-group {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.ow-logo-icon {
+    font-size: 2.6rem;
+    color: #f9c74f;
+}
+
+.ow-logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.ow-app-title {
+    margin: 0 0 0.1rem;
+    font-size: 1.45rem;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+}
+
+.ow-app-subtitle {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #a9b5c7;
+}
+
+.ow-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.ow-unit-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.ow-unit-label {
+    font-size: 0.75rem;
+    color: #a9b5c7;
+}
+
+.ow-unit-select {
+    min-width: 145px;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid #263445;
+    background-color: #0f1e30;
+    color: #f4f7fb;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.ow-unit-select:focus-visible {
+    border-color: #2d9eff;
+    box-shadow: 0 0 0 2px rgba(45, 158, 255, 0.25);
+}
+
+.ow-body.ow-theme-light .ow-unit-select {
+    background-color: #ffffff;
+    border-color: #c5cfde;
+    color: #17212f;
+}
+
+.ow-theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid #263445;
+    background-color: #0f1e30;
+    color: #f4f7fb;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.ow-theme-toggle:hover {
+    background-color: #17263a;
+}
+
+.ow-theme-toggle:active {
+    transform: scale(0.97);
+}
+
+.ow-theme-icon {
+    font-size: 1.1rem;
+}
+
+.ow-theme-text {
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   Main Layout
+========================================= */
+
+.ow-main {
+    flex: 1;
+    padding: 0 1.25rem 1.75rem;
+}
+
+.ow-search-section,
+.ow-results-section {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.ow-search-section {
+    margin-top: 0.5rem;
+}
+
+.ow-results-section {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* =========================================
+   Search Form
+========================================= */
+
+.ow-search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: 1.05rem 1.2rem 1.1rem;
+    border-radius: 1.2rem;
+    background-color: #0f1e30;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+.ow-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.ow-input-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #c8d4e5;
+}
+
+.ow-input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.ow-input-icon {
+    position: absolute;
+    left: 0.85rem;
+    font-size: 1rem;
+    color: #73829a;
+    pointer-events: none;
+}
+
+.ow-input {
+    width: 100%;
+    padding: 0.7rem 0.9rem 0.7rem 2.15rem;
+    border-radius: 0.85rem;
+    border: 1px solid #263445;
+    background-color: #0b1925;
+    color: #f4f7fb;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.ow-input::placeholder {
+    color: #5d6c81;
+}
+
+.ow-input:focus-visible {
+    border-color: #2d9eff;
+    box-shadow: 0 0 0 2px rgba(45, 158, 255, 0.3);
+}
+
+.ow-input-hint {
+    margin: 0;
+    font-size: 0.78rem;
+    color: #8694aa;
+}
+
+.ow-search-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ow-primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-width: 150px;
+    padding: 0.6rem 1.3rem;
+    border-radius: 999px;
+    border: none;
+    background-color: #1b84f1;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.ow-primary-button:hover:not(.ow-button-disabled) {
+    background-color: #176cd0;
+    box-shadow: 0 8px 20px rgba(23, 108, 208, 0.5);
+}
+
+.ow-primary-button:active:not(.ow-button-disabled) {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 4px 10px rgba(23, 108, 208, 0.4);
+}
+
+.ow-button-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.ow-button-spinner {
+    position: absolute;
+    right: 0.9rem;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #ffffff;
+    animation: ow-spin 0.7s linear infinite;
+    opacity: 0;
+    transform: scale(0.4);
+    pointer-events: none;
+}
+
+.ow-primary-button.ow-button-loading .ow-button-spinner {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.ow-primary-button.ow-button-loading .ow-button-label {
+    opacity: 0.7;
+}
+
+.ow-primary-button.ow-button-disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+/* =========================================
+   Status Row (Loading / Error)
+========================================= */
+
+.ow-status-row {
+    margin-top: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ow-loading {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.86rem;
+    color: #a9b5c7;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.25s ease, max-height 0.25s ease;
+}
+
+.ow-loading.ow-loading-visible {
+    opacity: 1;
+    max-height: 2.5rem;
+}
+
+.ow-loading-spinner {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 999px;
+    border: 2px solid rgba(169, 181, 199, 0.3);
+    border-top-color: #f4f7fb;
+    animation: ow-spin 0.7s linear infinite;
+}
+
+.ow-loading-text {
+    white-space: nowrap;
+}
+
+.ow-error-container {
+    min-height: 1.2rem;
+    font-size: 0.86rem;
+    color: #f4b1b1;
+}
+
+.ow-error-message {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background-color: rgba(176, 59, 71, 0.18);
+}
+
+.ow-error-icon {
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   Cards
+========================================= */
+
+.ow-card {
+    border-radius: 1.2rem;
+    padding: 1.1rem 1.2rem 1.2rem;
+    background-color: #101b29;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+}
+
+.ow-card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 0.85rem;
+}
+
+.ow-card-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.ow-card-title-icon {
+    font-size: 1.1rem;
+    color: #4dabff;
+}
+
+.ow-card-subtitle {
+    margin: 0;
+    font-size: 0.82rem;
+    color: #9ba9bc;
+}
+
+.ow-card-body {
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   Current Weather Layout
+========================================= */
+
+.ow-current-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.4fr);
+    gap: 1rem;
+}
+
+.ow-current-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.ow-current-location {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.ow-current-meta {
+    font-size: 0.8rem;
+    color: #9ba9bc;
+}
+
+.ow-current-temperature-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.2rem;
+}
+
+.ow-current-temp-value {
+    font-size: 2.4rem;
+    font-weight: 650;
+}
+
+.ow-current-temp-unit {
+    font-size: 1.1rem;
+    opacity: 0.85;
+}
+
+.ow-current-feels {
+    font-size: 0.9rem;
+    color: #c1cedf;
+}
+
+.ow-current-description {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.35rem;
+    font-size: 0.92rem;
+}
+
+.ow-current-description .ow-condition-pill {
+    padding: 0.15rem 0.65rem;
+    border-radius: 999px;
+    background-color: rgba(77, 171, 255, 0.16);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.ow-current-extra {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+    margin-top: 0.7rem;
+}
+
+.ow-current-extra-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    font-size: 0.82rem;
+    color: #c1cedf;
+}
+
+.ow-current-extra-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #8d9ab1;
+}
+
+.ow-current-extra-value {
+    font-weight: 600;
+}
+
+.ow-current-icon-group {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ow-current-icon-wrapper {
+    width: 72px;
+    height: 72px;
+    border-radius: 24px;
+    background-color: rgba(15, 30, 48, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ow-current-icon {
+    width: 64px;
+    height: 64px;
+}
+
+.ow-current-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    color: #a9b5c7;
+}
+
+/* =========================================
+   Forecast Grid
+========================================= */
+
+.ow-forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.1rem;
+}
+
+.ow-forecast-card {
+    min-width: 130px;
+    border-radius: 0.9rem;
+    padding: 0.7rem 0.75rem 0.8rem;
+    background-color: #0b1925;
+    border: 1px solid #1f2c3e;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.ow-forecast-date {
+    font-size: 0.83rem;
+    font-weight: 600;
+}
+
+.ow-forecast-weekday {
+    font-size: 0.76rem;
+    color: #9ba9bc;
+}
+
+.ow-forecast-icon-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.25rem;
+}
+
+.ow-forecast-icon-wrapper {
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    background-color: rgba(15, 30, 48, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ow-forecast-temp {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.ow-forecast-description {
+    font-size: 0.8rem;
+    color: #c1cedf;
+}
+
+.ow-forecast-meta {
+    margin-top: 0.2rem;
+    font-size: 0.76rem;
+    color: #9ba9bc;
+}
+
+.ow-forecast-empty {
+    font-size: 0.86rem;
+    color: #a9b5c7;
+}
+
+/* =========================================
+   API Details
+========================================= */
+
+.ow-api-body {
+    font-size: 0.86rem;
+}
+
+.ow-api-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr);
+    gap: 0.8rem 1.1rem;
+}
+
+.ow-api-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.ow-api-block-wide {
+    grid-column: 1 / -1;
+}
+
+.ow-api-heading {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.ow-api-text {
+    margin: 0;
+    color: #c1cedf;
+}
+
+.ow-api-list {
+    margin: 0;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.ow-api-label {
+    font-weight: 600;
+}
+
+.ow-code-block {
+    display: inline-block;
+    padding: 0.25rem 0.45rem;
+    border-radius: 0.35rem;
+    background-color: #0b1925;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.8rem;
+}
+
+.ow-code-sample {
+    margin: 0;
+    padding: 0.7rem 0.75rem;
+    border-radius: 0.6rem;
+    background-color: #0b1925;
+    color: #dbe6f5;
+    overflow-x: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.78rem;
+}
+
+/* =========================================
+   Footer
+========================================= */
+
+.ow-footer {
+    margin-top: auto;
+    border-top: 1px solid #151f2e;
+    padding: 0.9rem 1.25rem 1.2rem;
+}
+
+.ow-footer-content {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    font-size: 0.78rem;
+    color: #8f9db2;
+}
+
+.ow-footer-text {
+    margin: 0;
+}
+
+.ow-footer-link {
+    color: #4dabff;
+    font-weight: 500;
+}
+
+.ow-footer-link:hover {
+    text-decoration: underline;
+}
+
+.ow-footer-icon {
+    margin-right: 0.25rem;
+}
+
+/* =========================================
+   Utility States
+========================================= */
+
+.ow-hidden {
+    display: none !important;
+}
+
+/* =========================================
+   Animations
+========================================= */
+
+@keyframes ow-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================
+   Responsive Design
+========================================= */
+
+@media screen and (max-width: 960px) {
+    .ow-header-main {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ow-header-actions {
+        align-self: stretch;
+        justify-content: space-between;
+    }
+
+    .ow-current-body {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ow-current-icon-group {
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .ow-header {
+        padding: 1.25rem 1rem 0.75rem;
+    }
+
+    .ow-main {
+        padding: 0 1rem 1.4rem;
+    }
+
+    .ow-card {
+        padding: 1.05rem 1rem 1.1rem;
+    }
+
+    .ow-search-form {
+        padding: 1rem 1rem 1.05rem;
+    }
+
+    .ow-api-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ow-forecast-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .ow-header-main {
+        gap: 1rem;
+    }
+
+    .ow-logo-icon {
+        font-size: 2.2rem;
+    }
+
+    .ow-app-title {
+        font-size: 1.3rem;
+    }
+
+    .ow-app-subtitle {
+        font-size: 0.82rem;
+    }
+
+    .ow-header-actions {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .ow-unit-toggle {
+        flex: 1;
+    }
+
+    .ow-unit-select {
+        width: 100%;
+    }
+
+    .ow-search-form {
+        gap: 0.75rem;
+    }
+
+    .ow-current-temperature-row {
+        margin-top: 0.1rem;
+    }
+
+    .ow-current-temp-value {
+        font-size: 2rem;
+    }
+
+    .ow-current-extra {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ow-forecast-grid {
+        grid-auto-flow: column;
+        grid-auto-columns: 60%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        overflow-x: auto;
+        padding-bottom: 0.4rem;
+    }
+
+    .ow-forecast-card {
+        min-width: 140px;
+    }
+
+    .ow-footer-content {
+        font-size: 0.76rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .ow-search-form {
+        padding: 0.95rem 0.9rem 1rem;
+    }
+
+    .ow-input {
+        font-size: 0.86rem;
+    }
+
+    .ow-input-hint {
+        font-size: 0.74rem;
+    }
+
+    .ow-primary-button {
+        width: 100%;
+    }
+
+    .ow-current-extra {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ow-api-grid {
+        gap: 0.7rem;
+    }
+}
+
+

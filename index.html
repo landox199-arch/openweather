@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OpenWeather Explorer</title>
+
+       
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" >
+
+        
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="ow-body">
+        <div class="ow-app">
+            <header class="ow-header">
+                <div class="ow-header-main">
+                    <div class="ow-logo-group">
+                        <i class="bi bi-cloud-sun ow-logo-icon" aria-hidden="true"></i>
+                        <div class="ow-logo-text">
+                            <h1 class="ow-app-title">OpenWeather Explorer</h1>
+                            <p class="ow-app-subtitle">
+                                Search real-time weather for any city.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="ow-header-actions">
+                        <div class="ow-unit-toggle" aria-label="Temperature unit select">
+                            <label for="ow-unit-select" class="ow-unit-label">Units</label>
+                            <select id="ow-unit-select" class="ow-unit-select">
+                                <option value="metric">Celsius (°C)</option>
+                                <option value="imperial">Fahrenheit (°F)</option>
+                            </select>
+                        </div>
+
+                        <button
+                            class="ow-theme-toggle"
+                            id="ow-theme-toggle"
+                            type="button"
+                            aria-label="Toggle dark mode"
+                        >
+                            <i class="bi bi-moon-stars ow-theme-icon" aria-hidden="true"></i>
+                            <span class="ow-theme-text">Dark</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="ow-main" aria-live="polite">
+                <section class="ow-search-section" aria-label="Search weather by city">
+                    <form id="ow-search-form" class="ow-search-form" novalidate>
+                        <div class="ow-input-group">
+                            <label for="ow-city-input" class="ow-input-label">
+                                City name
+                            </label>
+                            <div class="ow-input-with-icon">
+                                <i class="bi bi-geo-alt ow-input-icon" aria-hidden="true"></i>
+                                <input
+                                    type="text"
+                                    id="ow-city-input"
+                                    class="ow-input"
+                                    name="city"
+                                    placeholder="e.g. Manila, London, New York"
+                                    autocomplete="off"
+                                    required
+                                    aria-required="true"
+                                >
+                            </div>
+                            <p class="ow-input-hint">
+                                Enter a city name only. No special symbols except comma, dash, and period.
+                            </p>
+                        </div>
+
+                        <div class="ow-search-actions">
+                            <button
+                                type="submit"
+                                id="ow-search-button"
+                                class="ow-primary-button"
+                            >
+                                <span class="ow-button-label">
+                                    <i class="bi bi-search" aria-hidden="true"></i>
+                                    <span>Search Weather</span>
+                                </span>
+                                <span class="ow-button-spinner" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="ow-status-row">
+                        <div
+                            id="ow-loading-indicator"
+                            class="ow-loading"
+                            role="status"
+                            aria-live="assertive"
+                            aria-hidden="true">
+                            <span class="ow-loading-spinner" aria-hidden="true"></span>
+                            <span class="ow-loading-text">Loading weather data…</span>
+                        </div>
+
+                        <div
+                            id="ow-error-container"
+                            class="ow-error-container"
+                            role="alert"
+                            aria-live="assertive"
+                        ></div>
+                    </div>
+                </section>
+
+                <section class="ow-results-section" aria-label="Weather results">
+                    <section
+                        id="ow-current-weather"
+                        class="ow-card ow-card-current"
+                        aria-label="Current weather"
+                    >
+                        <header class="ow-card-header">
+                            <h2 class="ow-card-title">
+                                <i class="bi bi-thermometer-sun ow-card-title-icon" aria-hidden="true"></i>
+                                Current Weather
+                            </h2>
+                            <p class="ow-card-subtitle" id="ow-current-location-label">
+                                Search for a city to see the current conditions.
+                            </p>
+                        </header>
+
+                        <div class="ow-card-body ow-current-body" id="ow-current-body">
+                           
+                        </div>
+                    </section>
+
+                </section>
+            </main>
+
+        </div>
+       
+        
+        <script src="config.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
+
+
